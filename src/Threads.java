@@ -37,9 +37,9 @@ public class Threads extends Thread{
 		System.out.println("Iniciando cálculo da transação ID #" + ID);
 		int tempo = (int) (Math.random() * 1001) + 1000;
 		try {
+			semaforo.acquire();
 			Thread.sleep(tempo);
 			System.out.println("Cálculo da transação #" + ID + " finalizada.");
-			semaforo.acquire();
 			transacaoResto0();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,9 +52,9 @@ public class Threads extends Thread{
 		System.out.println("Iniciando cálculo da transação ID #" + ID);
 		int tempo = (int) (Math.random() * 981) + 20;
 		try {
+			semaforo2.acquire();
 			Thread.sleep(tempo);
 			System.out.println("Cálculo da transação #" + ID + " finalizada.");
-			semaforo2.acquire();
 			transacaoResto1();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,9 +67,9 @@ public class Threads extends Thread{
 		System.out.println("Iniciando cálculo da transação ID #" + ID);
 		int tempo = (int) (Math.random() * 1001) + 500;
 		try {
+			semaforo2.acquire();
 			Thread.sleep(tempo);
 			System.out.println("Cálculo da transação #" + ID + " finalizada.");
-			semaforo3.acquire();
 			transacaoResto2();
 		} catch (Exception e) {
 			e.printStackTrace();
